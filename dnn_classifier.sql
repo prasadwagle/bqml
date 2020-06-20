@@ -1,4 +1,4 @@
-CREATE OR REPLACE MODEL pwagle.txtclass
+CREATE OR REPLACE MODEL pwagle.txtclass_dnn_classifier
 OPTIONS(model_type='DNN_CLASSIFIER', input_label_cols=['source'])
 AS
 WITH extracted AS (
