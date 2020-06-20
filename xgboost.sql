@@ -1,4 +1,4 @@
-CREATE OR REPLACE MODEL pwagle.txtclass
+CREATE OR REPLACE MODEL pwagle.txtclass_xgboost
 OPTIONS(model_type='BOOSTED_TREE_CLASSIFIER', input_label_cols=['source'])
 AS
 WITH extracted AS (
