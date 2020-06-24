@@ -1,5 +1,5 @@
 # bqml
-Experiments with BQML
+Experiments with BQML based on Lak's blog post (TODO add link)
 
 ## logistic_reg.sql
 
