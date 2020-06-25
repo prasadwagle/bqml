@@ -15,4 +15,16 @@ Experiments with BQML based on Lak's blog post (TODO add link)
 ## DNN_CLASSIFIER
 
 * This query will process 204.8 MB (ML) when run.
-* An internal error occurred and the request could not be completed. Error: 3144498
+* Elapsed time 12 min 36 sec
+* Slot time consumed 6 min 9.997 sec
+* Stages Preprocess	35.278 sec
+* Train	11 min 33.775 sec
+* Evaluate	26.069 sec	
+* Training iterations Completed: 2 Planned: 20
+* Threshold 	0.0000
+* Precision 	0.1284
+* Recall 	0.3333
+* Accuracy 0.3852
+* F1 score 0.1854
+* Log loss 1.1036
+* ROC AUC 	0.0000
