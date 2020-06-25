@@ -21,5 +21,6 @@ WHERE (source = 'github' OR source = 'nytimes' OR source = 'techcrunch')
 )
 SELECT 
 source, 
-words
+words,
+1 as dummy_feature -- workaround for BQML issue
 FROM ds
