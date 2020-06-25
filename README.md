@@ -1,6 +1,15 @@
 # bqml
 Experiments with BQML based on Lak's blog post (TODO add link)
 
+## Input
+
+SQL to create txtclass_input in txtclass_input.sql.
+
+select count(distinct words1)
+from `twttr-bq-bqml-dev.pwagle.txtclass_input`, unnest(words) as words1
+
+Result: 53838
+
 ## logistic_reg.sql
 
 * Time to train Less than a minute
