@@ -23,4 +23,3 @@ SELECT
 source, 
 words
 FROM ds
---limit 10000
