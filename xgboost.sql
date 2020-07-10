@@ -1,25 +1,6 @@
 CREATE OR REPLACE MODEL pwagle.txtclass_xgboost
 OPTIONS(model_type='BOOSTED_TREE_CLASSIFIER', input_label_cols=['source'])
 AS
-WITH extracted AS (
-SELECT source, REGEXP_REPLACE(LOWER(REGEXP_REPLACE(title, '[^a-zA-Z0-9 $-]', ' ')), "  ", " ") AS title 
-FROM
-  (SELECT
-    ARRAY_REVERSE(SPLIT(REGEXP_EXTRACT(url, '.*://(.[^/]+)/'), '.'))[OFFSET(1)] AS source,
-    title
-  FROM
-    `bigquery-public-data.hacker_news.stories`
-  WHERE
-    REGEXP_CONTAINS(REGEXP_EXTRACT(url, '.*://(.[^/]+)/'), '.com$')
-    AND LENGTH(title) > 10
-  )
-)
-, ds AS (
-SELECT SPLIT(title, " ") AS words, source 
-FROM extracted
-WHERE (source = 'github' OR source = 'nytimes' OR source = 'techcrunch')
-)
-SELECT 
-source, 
-words
-FROM ds
+SELECT source, words
+FROM pwagle.txtclass_input
+WHERE ABS(MOD(FARM_FINGERPRINT(words[OFFSET(0)]), 10)) < 1 -- workaround for upper limit of allowed array inputs in the XGBoost model. The current limit is 9999, and the model is using 14895.
